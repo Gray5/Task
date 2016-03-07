@@ -8,9 +8,10 @@ using Task_ac73.Models;
 namespace Task_ac73.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160304001542_Inital")]
+    partial class Inital
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -108,8 +109,7 @@ namespace Task_ac73.Migrations
                     b.Property<string>("Country")
                         .IsRequired();
 
-                    b.Property<DateTime>("Date")
-                        .ValueGeneratedOnAdd();
+                    b.Property<DateTime>("Date");
 
                     b.Property<string>("Postcode");
 

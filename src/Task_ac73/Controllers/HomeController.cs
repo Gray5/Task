@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Mvc;
+using Task_ac73.Models;
 
 namespace Task_ac73.Controllers
 {
@@ -12,7 +13,6 @@ namespace Task_ac73.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 

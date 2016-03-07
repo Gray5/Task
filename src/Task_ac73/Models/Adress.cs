@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Task_ac73.Models
 {
@@ -19,6 +20,7 @@ namespace Task_ac73.Models
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
         [Display(Name = "Date")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public DateTime Date { get; set; }
     }
 }
