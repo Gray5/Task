@@ -1,16 +1,12 @@
-﻿
-@{
-    Layout = "";
-}
-<html>
+﻿<html>
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div ng-app="adressAp">
-        <select ng-controller="localeCtrl" ng-model="languages.current" ng-options="key as value for (key, value) in languages.available"></select>
-        <table class="table" ng-controller="recordsCtrl">
+    <div ng-app="adressAp" ng-controller="adresCtrl">
+        <button class="btn" ng-click="localeChange" translate>Change language</button>
+        <table class="table">
             <thead>
                 <tr>
                     <td translate>Country</td>
@@ -35,12 +31,7 @@
 
     </div>
     <script src="~/lib/angular/angular.js"></script>
-    <script src="~/lib/angular-gettext/dist/angular-gettext.js"></script>
-    <script src="~/js/translations.js"></script>
     <script src="~/js/site.js"></script>
-<script src="~/js/Controllers/localeCtrl.js"></script>
-
-    <script src="~/js/Controllers/recordsCtrl.js"></script>
-
+    <script src="~/lib/angular-gettext/dist/angular-gettext.js"></script>
 </body>
 </html>

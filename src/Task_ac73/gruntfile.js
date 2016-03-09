@@ -7,6 +7,17 @@ module.exports = function (grunt) {
     grunt.initConfig({
         nggettext_extract: {
             pot: {
+                options: {
+                    extensions: {
+                        htm: 'html',
+                        html: 'html',
+                        php: 'html',
+                        phtml: 'html',
+                        tml: 'html',
+                        js: 'js',
+                        cshtml: 'html'
+                    },
+                },
                 files: {
                     'po/template.pot': ['views/home/*.cshtml']
                 }
@@ -16,7 +27,7 @@ module.exports = function (grunt) {
         nggettext_compile: {
             all: {
                 files: {
-                    'js/translations.js': ['po/*.po']
+                    'wwwwroot/js/translations.js': ['po/*.po']
                 }
             },
         },

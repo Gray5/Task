@@ -1,4 +1,4 @@
-﻿angular.module('myApp', ['gettext']);
+﻿'use strict';
 
 var params = {
     count: 10,
@@ -14,12 +14,7 @@ var filter = {
     postcode: "",
     date: ""
 }
-var app = angular.module('adressAp', []);
-app.value("locale", $RussianPack);
-app.value("language", "russian");
-app.controller('adresCtrl', function ($scope, $http) {
-    $http.post("api/Adresses", params)
-    .then(function (response) {
-        $scope.records = response.data;
-    });
+var app = angular.module('adressAp', ['gettext']);
+app.run(function (gettextCatalog) {
+    gettextCatalog.currentLanguage = 'ru_RU';
 });

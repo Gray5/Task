@@ -3,31 +3,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"X-Generator: Poedit 1.8.7\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru_RU\n"
 
 #: views/home/Index.cshtml:19
 msgid "Building"
-msgstr ""
+msgstr "Дом"
 
 #: views/home/Index.cshtml:12
 msgid "Change language"
-msgstr ""
+msgstr "Изменить язык"
 
 #: views/home/Index.cshtml:16
 msgid "Country"
-msgstr ""
+msgstr "Страна"
 
 #: views/home/Index.cshtml:21
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: views/home/Index.cshtml:20
 msgid "Postcode"
-msgstr ""
+msgstr "Индекс"
 
 #: views/home/Index.cshtml:18
 msgid "Street"
-msgstr ""
+msgstr "Улица"
 
 #: views/home/Index.cshtml:17
 msgid "Town"
-msgstr ""
+msgstr "Город"
