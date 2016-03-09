@@ -1,14 +1,41 @@
-﻿<table class="table table-hover">
-    <thead>
-    <tr>
-        <th class="glyphicon-sort">Country</th>
-        <th class="glyphicon-sort">Town</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Test0</td>
-        <td>Test1</td>
-    </tr>
-    </tbody>
-</table>
+﻿
+@{
+    Layout = "";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<div ng-app="adressAp" ng-controller="adresCtrl">
+    <button class="btn" ng-click="localeChange" translate>Change language</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <td translate>Country</td>
+            <td translate>Town</td>
+            <td translate>Street</td>
+            <td translate>Building</td>
+            <td translate>Postcode</td>
+            <td translate>Date</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="x in records">
+            <td>{{ x.Country }}</td>
+            <td>{{ x.Town }}</td>
+            <td>{{ x.Street }}</td>
+            <td>{{ x.Building }}</td>
+            <td>{{ x.Postcode }}</td>
+            <td>{{ x.Date }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<script src="~/lib/angular/angular.js"></script>
+<script src="~/js/site.js"></script>
+<script src="~/lib/angular-gettext/dist/angular-gettext.js"></script>
+</body>
+</html>

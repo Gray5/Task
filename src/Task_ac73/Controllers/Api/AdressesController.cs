@@ -8,7 +8,7 @@ using Task_ac73.Models;
 namespace Task_ac73.Controllers
 {
     [Produces("application/json")]
-    [Route("home/api/Adresses")]
+    [Route("/api/Adresses")]
     public class AdressesController : Controller
     {
         private ApplicationDbContext _context;

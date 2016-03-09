@@ -11,12 +11,16 @@ namespace Task_ac73.Models
         [Required]
         [Display(Name = "Country")]
         public string Country { get; set; }
+        [Required]
         [Display(Name = "Town")]
         public string Town { get; set; }
+        [Required]
         [Display(Name = "Street")]
         public string Street { get; set; }
+        [Required]
         [Display(Name = "Building")]
         public string Building { get; set; }
+        [Required]
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
         [Display(Name = "Date")]
