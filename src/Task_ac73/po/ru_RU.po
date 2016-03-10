@@ -12,30 +12,38 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: ru_RU\n"
 
-#: views/home/Index.cshtml:19
+#: views/home/Index.cshtml:20
 msgid "Building"
 msgstr "Дом"
 
-#: views/home/Index.cshtml:12
-msgid "Change language"
-msgstr "Изменить язык"
-
-#: views/home/Index.cshtml:16
+#: views/home/Index.cshtml:17
 msgid "Country"
 msgstr "Страна"
 
-#: views/home/Index.cshtml:21
+#: views/home/Index.cshtml:22
 msgid "Date"
 msgstr "Дата"
 
-#: views/home/Index.cshtml:20
+#: views/home/Index.cshtml:46
+msgid "Next page"
+msgstr "Следущая страница"
+
+#: views/home/Index.cshtml:21
 msgid "Postcode"
 msgstr "Индекс"
 
-#: views/home/Index.cshtml:18
+#: views/home/Index.cshtml:45
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: views/home/Index.cshtml:19
 msgid "Street"
 msgstr "Улица"
 
-#: views/home/Index.cshtml:17
+#: views/home/Index.cshtml:18
 msgid "Town"
 msgstr "Город"
+
+#: views/home/Index.cshtml:47
+msgid "from"
+msgstr "из"

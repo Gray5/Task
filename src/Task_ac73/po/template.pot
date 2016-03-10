@@ -4,30 +4,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Project-Id-Version: \n"
 
-#: views/home/Index.cshtml:19
+#: views/home/Index.cshtml:20
 msgid "Building"
 msgstr ""
 
-#: views/home/Index.cshtml:12
-msgid "Change language"
-msgstr ""
-
-#: views/home/Index.cshtml:16
+#: views/home/Index.cshtml:17
 msgid "Country"
 msgstr ""
 
-#: views/home/Index.cshtml:21
+#: views/home/Index.cshtml:22
 msgid "Date"
 msgstr ""
 
-#: views/home/Index.cshtml:20
+#: views/home/Index.cshtml:46
+msgid "Next page"
+msgstr ""
+
+#: views/home/Index.cshtml:21
 msgid "Postcode"
 msgstr ""
 
-#: views/home/Index.cshtml:18
+#: views/home/Index.cshtml:45
+msgid "Previous page"
+msgstr ""
+
+#: views/home/Index.cshtml:19
 msgid "Street"
 msgstr ""
 
-#: views/home/Index.cshtml:17
+#: views/home/Index.cshtml:18
 msgid "Town"
+msgstr ""
+
+#: views/home/Index.cshtml:47
+msgid "from"
 msgstr ""

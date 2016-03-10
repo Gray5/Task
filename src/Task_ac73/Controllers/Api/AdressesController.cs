@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNet.Http;
+using System.Linq.Expressions;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
 using Task_ac73.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Task_ac73.Controllers
 {
@@ -41,15 +44,49 @@ namespace Task_ac73.Controllers
             _context.SaveChanges();
             return _context.Adress;
         }
-        
+
         // POST: api/Adresses
         [HttpPost]
         public IActionResult PostAdress([FromBody]dynamic data)
         {
-            
-            return Json(_context.Adress);
+            JObject jdata = JObject.FromObject(data);
+            int count = int.Parse(jdata["count"].ToString());
+            int page = int.Parse(jdata["page"].ToString());
+            bool isAscending = bool.Parse(jdata["sortDirection"].ToString());
+            Expression<Func<Adress, bool>> expression = adress => adress.Country.Contains(jdata["filters"]["country"].ToString())
+                                                               && adress.Town.Contains(jdata["filters"]["town"].ToString())
+                                                               && adress.Street.Contains(jdata["filters"]["street"].ToString())
+                                                               && adress.Building.Contains(jdata["filters"]["building"].ToString())
+                                                               && adress.Postcode.Contains(jdata["filters"]["postcode"].ToString())
+                                                               && adress.Date.ToString().Contains(jdata["filters"]["date"].ToString());
+            var outData = _context.Adress.Where(expression);
+            switch (jdata["sortColumn"].ToString())
+            {
+                case "0":
+                    outData = (isAscending) ? outData.OrderBy(adress => adress.Country) : outData.OrderByDescending(adress => adress.Country);
+                    break;
+                case "1":
+                    outData = (isAscending) ? outData.OrderBy(adress => adress.Town) : outData.OrderByDescending(adress => adress.Town);
+                    break;
+                case "2":
+                    outData = (isAscending) ? outData.OrderBy(adress => adress.Street) : outData.OrderByDescending(adress => adress.Street);
+                    break;
+                case "3":
+                    outData = (isAscending) ? outData.OrderBy(adress => adress.Building) : outData.OrderByDescending(adress => adress.Building);
+                    break;
+                case "4":
+                    outData = (isAscending) ? outData.OrderBy(adress => adress.Postcode) : outData.OrderByDescending(adress => adress.Postcode);
+                    break;
+                case "5":
+                    outData = (isAscending) ? outData.OrderBy(adress => adress.Date) : outData.OrderByDescending(adress => adress.Date);
+                    break;
+                default:
+                    break;
+            }
+            outData = outData.Skip((page - 1) * count).Take(count);
+            return Json(new ApiAdress(outData,_context.Adress.Count()/count));
         }
-        
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

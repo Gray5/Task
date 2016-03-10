@@ -2,45 +2,58 @@
 @{
     Layout = "";
 }
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div ng-app="adressAp">
+    <div ng-app="adressAp" ng-controller="recordsCtrl">
         <select ng-controller="localeCtrl" ng-model="languages.current" ng-options="key as value for (key, value) in languages.available"></select>
-        <table class="table" ng-controller="recordsCtrl">
+        <table class="table">
             <thead>
                 <tr>
-                    <td translate>Country</td>
-                    <td translate>Town</td>
-                    <td translate>Street</td>
-                    <td translate>Building</td>
-                    <td translate>Postcode</td>
-                    <td translate>Date</td>
+                    <td><translate>Country</translate> <span class="glyphicon {{buttonState[0]}}" id="0" ng-click="sort($event)"></span></td>
+                    <td><translate>Town</translate> <span class="glyphicon {{buttonState[1]}}" id="1" ng-click="sort($event)"></span></td>
+                    <td><translate>Street</translate> <span class="glyphicon {{buttonState[2]}}" id="2" ng-click="sort($event)"></span></td>
+                    <td><translate>Building</translate> <span class="glyphicon {{buttonState[3]}}" id="3" ng-click="sort($event)"></span></td>
+                    <td><translate>Postcode</translate> <span class="glyphicon {{buttonState[4]}}" id="4" ng-click="sort($event)"></span></td>
+                    <td><translate>Date</translate> <span class="glyphicon {{buttonState[5]}}" id="5" ng-click="sort($event)"></span></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name="country" ng-model="country" ng-change="change()"></td>
+                    <td><input type="text" name="town" ng-model="town" ng-change="change()"></td>
+                    <td><input type="text" name="street" ng-model="street" ng-change="change()"></td>
+                    <td><input type="text" name="building" ng-model="building" ng-change="change()"></td>
+                    <td><input type="text" name="dostcode" ng-model="postcode" ng-change="change()"></td>
+                    <td><input type="text" name="date" ng-model="date" ng-change="change()"></td>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="x in records">
-                    <td>{{ x.Country }}</td>
-                    <td>{{ x.Town }}</td>
-                    <td>{{ x.Street }}</td>
-                    <td>{{ x.Building }}</td>
-                    <td>{{ x.Postcode }}</td>
-                    <td>{{ x.Date }}</td>
+                <tr ng-repeat="row in records.data">
+                    <td>{{ row.Country }}</td>
+                    <td>{{ row.Town }}</td>
+                    <td>{{ row.Street }}</td>
+                    <td>{{ row.Building }}</td>
+                    <td>{{ row.Postcode }}</td>
+                    <td>{{ row.Date }}</td>
                 </tr>
             </tbody>
         </table>
-
+        <div ng-controller="pageCtrl">
+            <button id="backward" class="btn btn-info" ng-click="pagePrevious()" ng-disabled="pageButton['backward']" translate>Previous page   </button>
+            <button id="forward" class="btn btn-info" ng-click="pageNext()" ng-disabled="pageButton['forward']" translate> Next page        </button>
+            <span>{{page}} <translate>from</translate> {{records.TotalPageCount}}</span>
+        </div>
     </div>
     <script src="~/lib/angular/angular.js"></script>
     <script src="~/lib/angular-gettext/dist/angular-gettext.js"></script>
     <script src="~/js/translations.js"></script>
     <script src="~/js/site.js"></script>
-<script src="~/js/Controllers/localeCtrl.js"></script>
-
+    <script src="~/js/Controllers/localeCtrl.js"></script>
     <script src="~/js/Controllers/recordsCtrl.js"></script>
+    <script src="~/js/Controllers/pageCtrl.js"></script>
 
 </body>
 </html>

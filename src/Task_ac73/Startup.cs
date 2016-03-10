@@ -100,6 +100,7 @@ namespace Task_ac73
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            //SampleData.Initialize(app.ApplicationServices);
         }
 
         // Entry point for the application.

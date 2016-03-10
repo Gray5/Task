@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.controller('localeCtrl', function indexCtrl($scope, $location, filterFilter, gettextCatalog) {
+app.controller('localeCtrl', function localeCtrl($scope, $location, gettextCatalog) {
 
     $scope.languages = {
         current: gettextCatalog.currentLanguage,
